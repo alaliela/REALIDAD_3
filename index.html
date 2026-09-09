@@ -4,57 +4,13 @@
     <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
   </head>
   <body>
-   <a-scene>
-      <a-entity position="0 0 -5">
- 
-        <!-- Piso -->
-        <a-plane rotation="-90 0 0" width="8" height="6" color="#B0B0B0"></a-plane>
- 
-        <!-- ===== BRAZO ROBÓTICO ===== -->
-        <a-entity position="0 0 0">
- 
-          <!-- Base fija (montada al piso) -->
-          <a-cylinder position="0 0.15 0" radius="0.5" height="0.3" color="#333333"></a-cylinder>
- 
-          <!-- Columna / cuerpo principal -->
-          <a-cylinder position="0 0.7 0" radius="0.3" height="0.8" color="#FFC65D"></a-cylinder>
- 
-          <!-- Hombro: la primera articulación, aquí "nace" el brazo -->
-          <a-entity position="0 1.1 0" rotation="0 0 -25">
- 
-            <!-- Segmento 1 del brazo (húmero) -->
-            <a-box position="0 0.6 0" width="0.25" height="1.2" depth="0.25" color="#4CC3D9"></a-box>
- 
-            <!-- Articulación del codo -->
-            <a-sphere position="0 1.2 0" radius="0.18" color="#333333"></a-sphere>
- 
-            <!-- Segmento 2, rotado desde el codo (antebrazo) -->
-            <a-entity position="0 1.2 0" rotation="0 0 55">
-              <a-box position="0 0.5 0" width="0.2" height="1" depth="0.2" color="#4CC3D9"></a-box>
- 
-              <!-- Muñeca -->
-              <a-sphere position="0 1 0" radius="0.13" color="#333333"></a-sphere>
- 
-              <!-- Pinza: dos dedos que "agarran" -->
-              <a-entity position="0 1 0">
-                <a-box position="-0.1 0.2 0" rotation="0 0 15" width="0.06" height="0.4" depth="0.15" color="#EF2D5E"></a-box>
-                <a-box position="0.1 0.2 0"  rotation="0 0 -15" width="0.06" height="0.4" depth="0.15" color="#EF2D5E"></a-box>
-              </a-entity>
- 
-            </a-entity>
-          </a-entity>
- 
-        </a-entity>
- 
-        <!-- ===== TANQUE al lado, como si el brazo tomara piezas de ahí ===== -->
-        <a-cylinder position="-1.8 1 0" radius="0.5" height="2" color="#3A86FF"></a-cylinder>
- 
-        <!-- ===== Pieza que el brazo está por recoger ===== -->
-        <a-box position="0.9 0.15 0" width="0.3" height="0.3" depth="0.3" color="#8D6E63"></a-box>
- 
-      </a-entity>
- 
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
+<a-scene>
+  <a-assets>
+    <a-asset-item id="modeloIndustrial" src="models/modelo.glb"></a-asset-item>
+  </a-assets>
+
+  <a-entity gltf-model="#modeloIndustrial" position="0 0 -5" scale="0.01 0.01 0.01"></a-entity>
+  <a-sky color="#ECECEC"></a-sky>
+</a-scene>
   </body>
 </html>
